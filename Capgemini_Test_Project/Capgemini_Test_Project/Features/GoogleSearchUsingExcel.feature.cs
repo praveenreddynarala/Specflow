@@ -85,7 +85,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.When(string.Format("user entered \'{0}\' in the search text field", searchText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.Then("user click on Google Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("clicks on Google Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
  testRunner.Then(string.Format("verify the number of links returned on result page is : {0}", no_OfLinks), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 12

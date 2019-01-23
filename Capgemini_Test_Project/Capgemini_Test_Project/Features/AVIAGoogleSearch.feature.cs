@@ -68,6 +68,7 @@ namespace Capgemini_Test_Project.Features
         [NUnit.Framework.DescriptionAttribute("Perform google Search using the keyword Aviva And Count Number of Links returned")]
         [NUnit.Framework.CategoryAttribute("PositiveCase")]
         [NUnit.Framework.TestCaseAttribute("Aviva", "6", "5", null)]
+        [NUnit.Framework.TestCaseAttribute("Aviva", "1", "5", null)]
         public virtual void PerformGoogleSearchUsingTheKeywordAvivaAndCountNumberOfLinksReturned(string searchText, string no_OfLinks, string printLinkNo_, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -84,7 +85,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.When(string.Format("user entered \'{0}\' in the search text field", searchText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
- testRunner.Then("user click on Google Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("clicks on Google Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
  testRunner.Then(string.Format("verify the number of links returned on result page is : {0}", no_OfLinks), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
@@ -108,17 +109,17 @@ this.ScenarioSetup(scenarioInfo);
             }
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Perform google Search using the keyword Aviva And Count Number of Links returned " +
                     "should not match", @__tags);
-#line 19
-this.ScenarioSetup(scenarioInfo);
 #line 20
- testRunner.Given("user navigates to Goolgle home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 21
- testRunner.When(string.Format("user entered \'{0}\' in the search text field", searchText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("user navigates to Goolgle home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
- testRunner.Then("user click on Google Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When(string.Format("user entered \'{0}\' in the search text field", searchText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
- testRunner.Then(string.Format("verify the number of links returned on result page is : {0}", no_OfLinks), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("clicks on Google Search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 24
+ testRunner.Then(string.Format("verify the number of links returned on result page is : {0}", no_OfLinks), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
  testRunner.Then(string.Format("print the linktext of the \'{0}\' th link displayed related to Aviva Search", printLinkNo_), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

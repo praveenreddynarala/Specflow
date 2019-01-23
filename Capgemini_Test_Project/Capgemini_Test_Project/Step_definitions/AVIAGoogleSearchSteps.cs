@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -43,6 +44,7 @@ namespace Capgemini_Test_Project
         public void GivenUserNavigatesToGoolgleHomePage()
         {
             _driverObj.Navigate().GoToUrl(FrameGlobals.strBaseUrl);
+            Thread.Sleep(15000);
         }
 
         [When(@"user entered '(.*)' in the search text field")]
@@ -51,8 +53,8 @@ namespace Capgemini_Test_Project
             _googleSearchStepsClassObj.EnterTextInGoogleSearchTextField(strValue);
         }
 
-        [Then(@"user click on Google Search button")]
-        public void ThenUserClickOnGoogleSearchButton()
+        [When(@"clicks on Google Search button")]
+        public void WhenClicksOnGoogleSearchButton()
         {
             _googleSearchStepsClassObj.ClickOnGoogleSearchButton();
         }
