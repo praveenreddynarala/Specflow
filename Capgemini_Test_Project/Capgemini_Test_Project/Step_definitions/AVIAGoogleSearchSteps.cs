@@ -25,6 +25,8 @@ namespace Capgemini_Test_Project
         #region Variables
         private IWebDriver _driverObj;
         private GoogleSearchPage _googleSearchStepsClassObj;
+        private FeatureContext _featurContext = null;
+        private ScenarioContext _scenarioContext = null;
         #endregion
 
         #region Constructor
@@ -32,10 +34,12 @@ namespace Capgemini_Test_Project
         /// Constructor
         /// </summary>
         /// <param name="driverObj">WebDriver object</param>
-        public StepDefinitions(IWebDriver driverObj)
+        public StepDefinitions(IWebDriver driverObj, FeatureContext featurContext, ScenarioContext scenarioContext)
         {
             _driverObj = driverObj;
             _googleSearchStepsClassObj = new GoogleSearchPage(_driverObj);
+            this._featurContext = featurContext;
+            this._scenarioContext = scenarioContext;
         }
         #endregion
 
@@ -44,7 +48,6 @@ namespace Capgemini_Test_Project
         public void GivenUserNavigatesToGoolgleHomePage()
         {
             _driverObj.Navigate().GoToUrl(FrameGlobals.strBaseUrl);
-            Thread.Sleep(15000);
         }
 
         [When(@"user entered '(.*)' in the search text field")]
@@ -62,9 +65,9 @@ namespace Capgemini_Test_Project
         [Then(@"verify the number of links returned on result page is : (.*)")]
         public void ThenVerifyTheNumberOfLinksReturnedOnResultPage(int iExpectedLinks)
         {
-            int intActualLinkCount = _googleSearchStepsClassObj.GetCountOfReturnedLinks();                             
-            ScenarioContext.Current["LinkCount"] = intActualLinkCount;
-            //Assert.IsTrue(intActualLinkCount == iExpectedLinks, "Actual link cound is not equals with expected links count");
+            int intActualLinkCount = _googleSearchStepsClassObj.GetCountOfReturnedLinks();
+            //ScenarioContext.Current["LinkCount"] = intActualLinkCount;
+            this._scenarioContext.Add("LinkCount", intActualLinkCount);
             Assert.That(intActualLinkCount == iExpectedLinks, "Actual links count is not same as expected links count");
 
         }
@@ -73,7 +76,8 @@ namespace Capgemini_Test_Project
         public void ThenPrintTheLinktextOfThLinkDisplayedRelatedToAvivaSearch(int iLinkNo)
         {
             string fifthLink = _googleSearchStepsClassObj.GetTextSpecificLink(iLinkNo);
-            ScenarioContext.Current["FifthLink"] = fifthLink;
+            //ScenarioContext.Current["FifthLink"] = fifthLink;
+            this._scenarioContext.Add("FifthLink", fifthLink);
         }
         #endregion
     }

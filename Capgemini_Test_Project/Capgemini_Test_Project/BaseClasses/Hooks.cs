@@ -85,9 +85,9 @@ namespace Capgemini_Test_Project.BaseClasses
         /// Method used to create ExtentTest Feature object
         /// </summary>
         [BeforeFeature]
-        public static void BeforeFeature()
+        public static void BeforeFeature(FeatureContext featureContext)
         {
-            extFeatureName = extReports.CreateTest<Feature>(FeatureContext.Current.FeatureInfo.Title);
+            extFeatureName = extReports.CreateTest<Feature>(featureContext.FeatureInfo.Title);
         }
 
         /// <summary>
@@ -96,83 +96,83 @@ namespace Capgemini_Test_Project.BaseClasses
         /// </summary>
         /// <param name="iDriver">WebDriver Object</param>
         [AfterStep]
-        public static void InsertReportingSteps(IWebDriver iDriver)
+        public static void InsertReportingSteps(IWebDriver iDriver, ScenarioContext scenarioContext)
         {
-            var vStepType = ScenarioStepContext.Current.StepInfo.StepDefinitionType.ToString();
+            var vStepType = scenarioContext.CurrentScenarioBlock.ToString();
 
             try
             {
                
                 PropertyInfo pInfo = typeof(ScenarioContext).GetProperty("ScenarioExecutionStatus", BindingFlags.Instance | BindingFlags.Public);
                 MethodInfo mGetter = pInfo.GetGetMethod(nonPublic: true);
-                object oTestResult = mGetter.Invoke(ScenarioContext.Current, null);
+                object oTestResult = mGetter.Invoke(scenarioContext, null);
 
 
-                if (ScenarioContext.Current.TestError == null) //if test does not return any error while execution
+                if (scenarioContext.TestError == null) //if test does not return any error while execution
                 {
                     if (vStepType == "Given")
                     {
-                        extScenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text);
+                        extScenario.CreateNode<Given>(scenarioContext.StepContext.StepInfo.Text);
                     }
                     else if (vStepType == "When")
                     {
-                        extScenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text);
+                        extScenario.CreateNode<When>(scenarioContext.StepContext.StepInfo.Text);
                     }
                     else if (vStepType == "Then")
                     {
                         
                         //Appending returned values to report logs
-                        if (ScenarioContext.Current.ContainsKey("LinkCount"))
+                        if (scenarioContext.ContainsKey("LinkCount"))
                         {
-                            int count = Convert.ToInt16(ScenarioContext.Current["LinkCount"]);
-                            extScenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text + " : <br/> Actual Result is : <b>" + count + "</b>");
-                            ScenarioContext.Current.Remove("LinkCount");
+                            int count = Convert.ToInt16(scenarioContext["LinkCount"]);
+                            extScenario.CreateNode<Then>(scenarioContext.StepContext.StepInfo.Text + " : <br/> Actual Result is : <b>" + count + "</b>");
+                            scenarioContext.Remove("LinkCount");
                         }
-                        else if (ScenarioContext.Current.ContainsKey("FifthLink"))
+                        else if (scenarioContext.ContainsKey("FifthLink"))
                         {
-                            string fifthLink = Convert.ToString(ScenarioContext.Current["FifthLink"]);
-                            extScenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text + " : " + fifthLink);
-                            ScenarioContext.Current.Remove("FifthLink");
+                            string fifthLink = Convert.ToString(scenarioContext["FifthLink"]);
+                            extScenario.CreateNode<Then>(scenarioContext.StepContext.StepInfo.Text + " : " + fifthLink);
+                            scenarioContext.Remove("FifthLink");
                         }
                         else
                         {
-                            extScenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text);
+                            extScenario.CreateNode<Then>(scenarioContext.StepContext.StepInfo.Text);
                         }
                         
                     }
                     else if (vStepType == "And")
                     {
                         
-                        extScenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text);
+                        extScenario.CreateNode<And>(scenarioContext.StepContext.StepInfo.Text);
                     }
                     
                 }
-                else if (ScenarioContext.Current.TestError != null) //if test returns error during the execution
+                else if (scenarioContext.TestError != null) //if test returns error during the execution
                 {
                     if (vStepType == "Given")
                     {
-                        extScenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException);
+                        extScenario.CreateNode<Given>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.InnerException);
                     }
                     else if (vStepType == "When")
                     {
-                        extScenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.InnerException).AddScreenCaptureFromPath(CaptureScreenshot(iDriver)); ;
+                        extScenario.CreateNode<When>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.InnerException).AddScreenCaptureFromPath(CaptureScreenshot(iDriver)); ;
                     }
                     else if (vStepType == "Then")
                     {
-                        if (ScenarioContext.Current.ContainsKey("Exception"))
+                        if (scenarioContext.ContainsKey("Exception"))
                         {
-                            string strExcMsg = ScenarioContext.Current["Exception"].ToString(); //Exception logging in reports
-                            extScenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text +" : "+ strExcMsg).Fail(ScenarioContext.Current.TestError.Message).AddScreenCaptureFromPath(CaptureScreenshot(iDriver));
-                            ScenarioContext.Current.Remove("Exception");
+                            string strExcMsg = scenarioContext["Exception"].ToString(); //Exception logging in reports
+                            extScenario.CreateNode<Then>(scenarioContext.StepContext.StepInfo.Text +" : "+ strExcMsg).Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CaptureScreenshot(iDriver));
+                            scenarioContext.Remove("Exception");
                         }
                         else
                         {
-                            extScenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message).AddScreenCaptureFromPath(CaptureScreenshot(iDriver)); ;
+                            extScenario.CreateNode<Then>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CaptureScreenshot(iDriver)); ;
                         }
                     }
                     else if (vStepType == "And")
                     {
-                        extScenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Fail(ScenarioContext.Current.TestError.Message).AddScreenCaptureFromPath(CaptureScreenshot(iDriver)); ;
+                        extScenario.CreateNode<And>(scenarioContext.StepContext.StepInfo.Text).Fail(scenarioContext.TestError.Message).AddScreenCaptureFromPath(CaptureScreenshot(iDriver)); ;
                     }
                 }
 
@@ -181,25 +181,25 @@ namespace Capgemini_Test_Project.BaseClasses
                 {
                     if (vStepType == "Given")
                     {
-                        extScenario.CreateNode<Given>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending");
+                        extScenario.CreateNode<Given>(scenarioContext.StepContext.StepInfo.Text).Skip("Step Definition Pending");
                     }
                     else if (vStepType == "When")
                     {
-                        extScenario.CreateNode<When>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending");
+                        extScenario.CreateNode<When>(scenarioContext.StepContext.StepInfo.Text).Skip("Step Definition Pending");
                     }
                     else if (vStepType == "Then")
                     {
-                        extScenario.CreateNode<Then>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending");
+                        extScenario.CreateNode<Then>(scenarioContext.StepContext.StepInfo.Text).Skip("Step Definition Pending");
                     }
                     else if (vStepType == "And")
                     {
-                        extScenario.CreateNode<And>(ScenarioStepContext.Current.StepInfo.Text).Skip("Step Definition Pending");
+                        extScenario.CreateNode<And>(scenarioContext.StepContext.StepInfo.Text).Skip("Step Definition Pending");
                     }
                 }
             }
             catch(Exception ex)
             {
-                ScenarioContext.Current["Exception"] = ex.Message;
+                scenarioContext["Exception"] = ex.Message;
             }
         }
         #endregion
@@ -211,7 +211,7 @@ namespace Capgemini_Test_Project.BaseClasses
         /// Added ImplicitWait
         /// </summary>
         [BeforeScenario]
-        public void InitializeDriver()
+        public void InitializeDriver(ScenarioContext scenarioContext)
         {
             try
             {
@@ -240,11 +240,12 @@ namespace Capgemini_Test_Project.BaseClasses
                 }
             }catch(Exception ex)
             {
-                ScenarioContext.Current["Exception"] = ex.Message;
+                //ScenarioContext.Current["Exception"] = ex.Message;
+                scenarioContext.Add("Exception", ex.Message);
             }
             _iWebDriver.Manage().Timeouts().ImplicitWait = (TimeSpan.FromSeconds(Double.Parse(FrameGlobals.strImplicitWait)));
             _objContainer.RegisterInstanceAs<IWebDriver>(_iWebDriver);
-            extScenario = extFeatureName.CreateNode<Scenario>(ScenarioContext.Current.ScenarioInfo.Title);
+            extScenario = extFeatureName.CreateNode<Scenario>(scenarioContext.ScenarioInfo.Title);
         }
 
         /// <summary>
