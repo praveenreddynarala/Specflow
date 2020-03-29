@@ -75,13 +75,12 @@ C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bi
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\MongoDB.Driver.xml
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\MongoDB.Driver.Core.xml
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\Newtonsoft.Json.xml
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\nunit.framework.pdb
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\nunit.framework.xml
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\RazorEngine.xml
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\System.Web.Razor.xml
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\WebDriver.xml
-C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.csprojAssemblyReference.cache
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.csproj.CoreCompileInputs.cache
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.csproj.CopyComplete
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.dll
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.pdb
-C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\nunit.framework.pdb
