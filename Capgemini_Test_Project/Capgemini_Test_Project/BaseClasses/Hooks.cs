@@ -229,11 +229,13 @@ namespace Capgemini_Test_Project.BaseClasses
                     var procStartInfo = new System.Diagnostics.ProcessStartInfo("cmd", "/c RunDll32.exe InetCpl.cpl,ClearMyTracksByProcess 2");
                     var proc = new System.Diagnostics.Process { StartInfo = procStartInfo };
                     proc.Start();
-                    var options = new InternetExplorerOptions();
-                    options.IntroduceInstabilityByIgnoringProtectedModeSettings = true;
-                    options.RequireWindowFocus = true;
-                    options.IgnoreZoomLevel = true;
-                    options.EnableNativeEvents = true;
+                    var options = new InternetExplorerOptions
+                    {
+                        IntroduceInstabilityByIgnoringProtectedModeSettings = true,
+                        RequireWindowFocus = true,
+                        IgnoreZoomLevel = true,
+                        EnableNativeEvents = true
+                    };
                     _iWebDriver = new InternetExplorerDriver(options);
                 }
             }catch(Exception ex)
