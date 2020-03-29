@@ -25,8 +25,8 @@ namespace Capgemini_Test_Project
         #region Variables
         private IWebDriver _driverObj;
         private GoogleSearchPage _googleSearchStepsClassObj;
-        private FeatureContext _featurContext = null;
-        private ScenarioContext _scenarioContext = null;
+        private readonly FeatureContext _featurContext = null;
+        private readonly ScenarioContext _scenarioContext = null;
         #endregion
 
         #region Constructor

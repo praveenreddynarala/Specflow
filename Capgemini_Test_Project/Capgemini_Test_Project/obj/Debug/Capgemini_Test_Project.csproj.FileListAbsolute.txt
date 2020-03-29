@@ -187,3 +187,4 @@ C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\ob
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.csproj.CopyComplete
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.dll
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.pdb
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.csprojAssemblyReference.cache
