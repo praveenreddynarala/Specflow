@@ -40,6 +40,14 @@ D:\data\Personal\Capgemini_Test_Project\Capgemini_Test_Project\Capgemini_Test_Pr
 D:\data\Personal\Capgemini_Test_Project\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.pdb
 D:\data\Personal\Capgemini_Test_Project\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.csprojAssemblyReference.cache
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\NUnit.VisualStudio.TestAdapter.dll
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\Mono.Cecil.dll
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\Mono.Cecil.Mdb.dll
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\Mono.Cecil.Pdb.dll
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\Mono.Cecil.Rocks.dll
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\nunit.core.dll
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\nunit.core.interfaces.dll
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\nunit.util.dll
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\NUnit3.TestAdapter.dll
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\NUnit3.TestAdapter.pdb
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\nunit.engine.dll
@@ -152,6 +160,7 @@ C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bi
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\Google.Protobuf.dll
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\HtmlAgilityPack.dll
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\ImpromptuInterface.dll
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\MongoDB.Bson.dll
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\MongoDB.Driver.Core.dll
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\MongoDB.Driver.dll
@@ -183,7 +192,7 @@ C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bi
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.pdb
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\Utf8Json.xml
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\bin\Debug\WebDriver.xml
-C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.csprojAssemblyReference.cache
+C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.dll.config
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.csproj.CoreCompileInputs.cache
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.csproj.CopyComplete
 C:\Automation\Specflow\Specflow\Capgemini_Test_Project\Capgemini_Test_Project\obj\Debug\Capgemini_Test_Project.dll
