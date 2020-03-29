@@ -27,6 +27,7 @@ namespace Capgemini_Test_Project.BaseClasses
         private IWebDriver _iDriver;
         private IWebElement _iWebElement;
         private IList<IWebElement> _iWebElementList;
+        private readonly ScenarioContext _scenarioContext;
         #endregion
 
         #region Constructor
@@ -34,9 +35,10 @@ namespace Capgemini_Test_Project.BaseClasses
         /// Constructor holds the object of WebDriver
         /// </summary>
         /// <param name="driverObj">WebDriver object</param>
-        public BrowserActions(IWebDriver iDriver)
+        public BrowserActions(IWebDriver iDriver, ScenarioContext scenarioContext)
         {
             _iDriver = iDriver;
+            this._scenarioContext = scenarioContext;
         }
         #endregion
 
@@ -77,13 +79,13 @@ namespace Capgemini_Test_Project.BaseClasses
                     if (!_iWebElement.Displayed)
                     {
                         Hooks.CaptureScreenshot(_iDriver);
-                        ScenarioContext.Current["Exception"] = "Element is not visisble. Please check element location and try run test again.";
+                        this._scenarioContext.Add("Exception", "Element is not visisble. Please check element location and try run test again.");
                     }
                 }
                 catch(Exception ex)
                 {
                     Hooks.CaptureScreenshot(_iDriver);
-                    ScenarioContext.Current["Exception"] = ex.Message;
+                    this._scenarioContext.Add("Exception", ex.Message);
                 }
                 return _iWebElement;
             });
@@ -106,14 +108,14 @@ namespace Capgemini_Test_Project.BaseClasses
                     if (!(DriverWait(uint.Parse(FrameGlobals.strImplicitWait)).Until(d => element).Enabled))
                     {
                         Hooks.CaptureScreenshot(_iDriver);
-                        ScenarioContext.Current["Exception"] = "Time out exception. Please try run test case again.";
+                        this._scenarioContext.Add("Exception", "Time out exception. Please try run test case again.");
                     }
                 }
                 bGetElement = true;
             }catch(Exception ex)
             {
                 Hooks.CaptureScreenshot(_iDriver);
-                ScenarioContext.Current["Exception"] = ex.Message;
+                this._scenarioContext.Add("Exception", ex.Message);
             }
             return bGetElement;
         }
@@ -136,7 +138,7 @@ namespace Capgemini_Test_Project.BaseClasses
             }catch(Exception ex)
             {
                 Hooks.CaptureScreenshot(_iDriver);
-                ScenarioContext.Current["Exception"] = ex.Message;
+                this._scenarioContext.Add("Exception", ex.Message);
             }
         }
 

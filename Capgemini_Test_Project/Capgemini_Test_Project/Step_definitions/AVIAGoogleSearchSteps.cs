@@ -36,10 +36,10 @@ namespace Capgemini_Test_Project
         /// <param name="driverObj">WebDriver object</param>
         public StepDefinitions(IWebDriver driverObj, FeatureContext featurContext, ScenarioContext scenarioContext)
         {
-            _driverObj = driverObj;
-            _googleSearchStepsClassObj = new GoogleSearchPage(_driverObj);
             this._featurContext = featurContext;
             this._scenarioContext = scenarioContext;
+            _driverObj = driverObj;
+            _googleSearchStepsClassObj = new GoogleSearchPage(_driverObj, this._scenarioContext);
         }
         #endregion
 

@@ -306,7 +306,7 @@ namespace Capgemini_Test_Project.BaseClasses
             }
             catch (Exception ex)
             {
-                ScenarioContext.Current["Exception"] = ex.Message;
+                Console.WriteLine( ex.Message);
             }
             return strFilePath;
         }

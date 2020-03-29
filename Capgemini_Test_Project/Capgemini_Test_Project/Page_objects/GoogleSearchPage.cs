@@ -20,8 +20,9 @@ namespace Capgemini_Test_Project.Page_objects
     public class GoogleSearchPage
     {
         #region variables
-        private IWebDriver _driverObj;
+        private readonly IWebDriver _driverObj;
         private BrowserActions _browserActionsClassObj;
+        private readonly ScenarioContext _scenarioContext;
         #endregion
 
         #region Constructor
@@ -29,17 +30,18 @@ namespace Capgemini_Test_Project.Page_objects
         /// Constructor and it holds WebDriver object
         /// </summary>
         /// <param name="driverObj">WebDriver object</param>
-        public GoogleSearchPage(IWebDriver driverObj)
+        public GoogleSearchPage(IWebDriver driverObj, ScenarioContext scenarioContext)
         {
+            this._scenarioContext = scenarioContext;
             _driverObj = driverObj;
-            _browserActionsClassObj = new BrowserActions(_driverObj);
+            _browserActionsClassObj = new BrowserActions(_driverObj, this._scenarioContext);
         }
         #endregion
 
         #region WebLocators from Google search page
-        private By bySearchTextFieldLocator = By.Name("q");
-        private By byGoogleSearchBtnLocator = By.XPath("//div[@class='VlcLAe']/descendant::input[@name='btnK']");
-        private By byAllAvailableLinksLocator = By.XPath("//h3/a");
+        private readonly By bySearchTextFieldLocator = By.Name("q");
+        private readonly By byGoogleSearchBtnLocator = By.XPath("//div[@class='VlcLAe']/descendant::input[@name='btnK']");
+        private readonly By byAllAvailableLinksLocator = By.XPath("//h3/a");
         #endregion
 
         #region Page Level Action
